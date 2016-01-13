@@ -4,6 +4,7 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.util.Log;
 
 import com.hawesome.coolweather.model.City;
 import com.hawesome.coolweather.model.Country;
@@ -63,6 +64,7 @@ public class CoolweatherDB {
             ContentValues values=new ContentValues();
             values.put("city_name",city.getCityName());
             values.put("city_code",city.getCityCode());
+            values.put("province_id",city.getProvinceId());
             sqLiteDatabase.insert("City",null,values);
         }
     }
@@ -91,6 +93,7 @@ public class CoolweatherDB {
             ContentValues values=new ContentValues();
             values.put("country_name",country.getCountryName());
             values.put("country_code",country.getCountryCode());
+            values.put("city_id",country.getCityId());
             sqLiteDatabase.insert("Country",null,values);
         }
     }
